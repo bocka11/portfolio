@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #15181B;
+  --foreground: #f6f1f1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #f6f1f1;
+  }
+}
+
+@media (min-width: 768px) {
+  /* Your styles for screens larger than 768px */
+  section {
+    /* padding: 40px 5vw; */
+    padding-right: 5vw;
+    padding-top: 120px
+  }
+}
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  /* overflow: hidden; */
+  
+  /* padding: 40px 5vw; */
+
+  padding: 20px 5vw;
+  
+  .left-section{
+    /* width: 360px; */
+  
+  }
+}
+
+
