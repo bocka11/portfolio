@@ -1,11 +1,21 @@
 import { SkillComponent } from "@/src/components/SkillComponent/SkillComponent";
+import { ExperienceSectionFields } from "@/src/types/Contentful";
 
-export const ExperienceSection = () => {
+export const ExperienceSection = (props: { data: ExperienceSectionFields }) => {
   return (
     <section className="flex flex-col md:flex-row justify-between">
-      <SkillComponent count="4+" type="Years of Experience" />
-      <SkillComponent count="10+" type="Completed Projects" />
-      <SkillComponent count="5+" type="HappyClients" />
+      <SkillComponent
+        count={`${props.data.yearsOfExperience}+`}
+        type="Years of Experience"
+      />
+      <SkillComponent
+        count={`${props.data.completedProjects}+`}
+        type="Completed Projects"
+      />
+      <SkillComponent
+        count={`${props.data.totalClients}+`}
+        type="HappyClients"
+      />
     </section>
   );
 };

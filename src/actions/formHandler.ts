@@ -24,6 +24,4 @@ export const formHandlerAction = async (
     console.log("Errors: ", errors);
     return { errors };
   }
-
-  console.log("Validated: ", validated);
 };

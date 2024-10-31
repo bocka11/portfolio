@@ -1,3 +1,4 @@
+import { AboutSectionFields } from "@/src/types/Contentful";
 import { Inter } from "next/font/google";
 
 const interRegular = Inter({
@@ -5,7 +6,7 @@ const interRegular = Inter({
   subsets: ["latin"],
 });
 
-export const AboutSection = () => {
+export const AboutSection = (props: { data: AboutSectionFields }) => {
   return (
     <section className="flex flex-col gap-5">
       <div>
@@ -22,7 +23,7 @@ export const AboutSection = () => {
         <span
           className={`${interRegular.className} text-5xl md:text-6xl leading-tight `}
         >
-          Every great product begin with an even better story
+          {props.data.title}
         </span>
       </div>
       <div>
@@ -32,12 +33,7 @@ export const AboutSection = () => {
             color: "#999999",
           }}
         >
-          Since beginning my journey as a software developer four years ago,
-          I've worked remotely with agencies, consulted for startups, and
-          collaborated with talented teams to build digital solutions for both
-          business and consumer use. I'm quietly confident, naturally curious,
-          and continually focused on honing my skills, one coding challenge at a
-          time.
+          {props.data.description}
         </span>
       </div>
     </section>

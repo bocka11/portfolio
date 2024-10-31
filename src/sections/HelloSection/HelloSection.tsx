@@ -1,10 +1,11 @@
+import { HelloSectionFields } from "@/src/types/Contentful";
 import { Inter } from "next/font/google";
 
 const interRegular = Inter({
   weight: "400",
   subsets: ["latin"],
 });
-export const HelloSection = () => {
+export const HelloSection = (props: { data: HelloSectionFields }) => {
   return (
     <section className="flex flex-col gap-10">
       <div>
@@ -24,7 +25,7 @@ export const HelloSection = () => {
             wordWrap: "break-word",
           }}
         >
-          I'm Boban, Full Stack Software Developer
+          {props.data.title}
         </span>
       </div>
       <div>
@@ -35,8 +36,7 @@ export const HelloSection = () => {
             wordWrap: "break-word",
           }}
         >
-          I craft elegant solutions to complex problems, and it gives me
-          pleasure. I'm living in Skopje and looking for new challenges.
+          {props.data.description}
         </span>
       </div>
     </section>

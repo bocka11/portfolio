@@ -69,7 +69,9 @@ export const ContactSection = () => {
             label="Message"
             name="message"
           ></CustomInput>
-          <CustomButton text="Send" type="submit" />
+          <div className="flex flex-row justify-center md:justify-normal">
+            <CustomButton text="Send" type="submit" />
+          </div>
         </Form>
       </div>
     </section>

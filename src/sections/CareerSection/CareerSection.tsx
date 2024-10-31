@@ -1,11 +1,13 @@
 import { Inter } from "next/font/google";
+import moment from "moment";
 import { ExperienceComponent } from "@/src/components/ExperienceComponent/ExperienceComponent";
+import { CareerSection as CareerSectionResponse } from "@/src/types/Contentful";
 const interRegular = Inter({
   weight: "400",
   subsets: ["latin"],
 });
 
-export const CareerSection = () => {
+export const CareerSection = (props: { data: CareerSectionResponse[] }) => {
   return (
     <section className="flex flex-col gap-10">
       <div className="flex flex-col gap-5">
@@ -34,21 +36,18 @@ export const CareerSection = () => {
         </div>
       </div>
       <div className="flex flex-col gap-10">
-        <ExperienceComponent
-          from="November 2021"
-          to="September 2024"
-          description="Full Stack Developer @ PCG International"
-        />
-        <ExperienceComponent
-          from="February 2021"
-          to="November 2021"
-          description="Full Stack Developer @ Digitex Systems"
-        />
-        <ExperienceComponent
-          from="March 2020"
-          to="present"
-          description="Full Stack Developer @ Freelance"
-        />
+        {props.data.map((entry, index) => {
+          const data = entry.fields;
+          return (
+            <ExperienceComponent
+              key={index}
+              from={moment(data.startDate).format("MMMM YYYY")}
+              to={moment(data.endDate).format("MMMM YYYY")}
+              description={data.description}
+              currentlyWorking={data.currentlyWorking}
+            />
+          );
+        })}
       </div>
     </section>
   );
