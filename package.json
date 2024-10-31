@@ -9,10 +9,12 @@
     "lint": "next lint --fix"
   },
   "dependencies": {
+    "@nextui-org/tooltip": "^2.0.41",
     "contentful": "^11.2.0",
     "moment": "^2.30.1",
     "next": "15.0.1",
     "react": "19.0.0-rc-69d4b800-20241021",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "19.0.0-rc-69d4b800-20241021",
     "react-icons": "^5.3.0",
     "zod": "^3.23.8"

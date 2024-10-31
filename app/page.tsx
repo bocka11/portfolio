@@ -21,6 +21,7 @@ import {
   CareerSection as CareerSectionResponse,
   ExperienceSection as ExperienceSectionResponse,
   ProfileSection as ProfileSectionResponse,
+  Skill as SkillResponse,
   ContentfulEntry,
 } from "../src/types/Contentful";
 export default function Home() {
@@ -54,7 +55,7 @@ export default function Home() {
       },
       socialMedia: [],
     });
-
+  const [skillsData, setSkillsData] = useState<SkillResponse[]>([]);
   useEffect(() => {
     (async function () {
       try {
@@ -76,7 +77,6 @@ export default function Home() {
         // Career Section
         const careerSectionEntries: ContentfulEntry<CareerSectionResponse>[] =
           await getEntriesByContentModel(ContentTypes.CareerSection);
-        console.log({ careerSectionEntries });
         setCareerSectionData(careerSectionEntries as any);
 
         // Experience Section
@@ -92,10 +92,11 @@ export default function Home() {
         setProfileSectionData(
           profileSectionEntries[0].fields as ProfileSectionFields
         );
-        console.log(
-          "Profile Section Entries: ",
-          profileSectionEntries[0].fields
-        );
+
+        // Skills
+        const skillsEntries: ContentfulEntry<SkillResponse>[] =
+          await getEntriesByContentModel(ContentTypes.Skills);
+        setSkillsData(skillsEntries as any);
       } catch (error) {
         console.log("Error: ", error);
       }
@@ -112,7 +113,7 @@ export default function Home() {
         <ExperienceSection data={experienceSectionData} />
         <AboutSection data={aboutSectionData} />
         <CareerSection data={careerSectionData} />
-        <SkillsSection />
+        <SkillsSection data={skillsData} />
         <ContactSection />
       </div>
     </div>

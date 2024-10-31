@@ -1,12 +1,15 @@
 import { Inter } from "next/font/google";
+import { CustomToolTip } from "@/src/components/Tooltip/Tooltip";
 import { FaReact, FaNodeJs, FaAngular, FaDocker, FaAws } from "react-icons/fa";
 import { SiKubernetes, SiSanity, SiServerless } from "react-icons/si";
+import { Skill as SkillResponse } from "@/src/types/Contentful";
 const interRegular = Inter({
   weight: "400",
   subsets: ["latin"],
 });
 
-export const SkillsSection = () => {
+export const SkillsSection = (props: { data: SkillResponse[] }) => {
+  console.log("Props: ", props);
   return (
     <section className="flex flex-col gap-6 md:gap-20">
       <div className="flex flex-col gap-2 md:gap-5">
@@ -35,10 +38,35 @@ export const SkillsSection = () => {
         </div>
       </div>
       <div className="flex flex-row flex-wrap justify-around md:justify-between">
-        <FaReact color="#999999" size={60} />
-        <FaNodeJs color="#999999" size={60} />
-        <FaAngular color="#999999" size={60} />
-        <FaDocker color="#999999" size={60} />
+        {props.data.map((skill, index) => {
+          switch (skill.fields.name) {
+            case "Nodejs":
+              return (
+                <CustomToolTip skill={skill.fields} key={index}>
+                  <FaNodeJs color={skill.fields.color} size={60} />
+                </CustomToolTip>
+              );
+            case "React":
+              return (
+                <CustomToolTip skill={skill.fields} key={index}>
+                  <FaReact color={skill.fields.color} size={60} />
+                </CustomToolTip>
+              );
+            case "Angular":
+              return (
+                <CustomToolTip skill={skill.fields} key={index}>
+                  <FaAngular color={skill.fields.color} size={60} />
+                </CustomToolTip>
+              );
+            case "Docker":
+              return (
+                <CustomToolTip skill={skill.fields} key={index}>
+                  <FaDocker color={skill.fields.color} size={60} />
+                </CustomToolTip>
+              );
+          }
+        })}
+
         <FaAws color="#999999" size={60} />
         <SiServerless color="#999999" size={60} />
         <SiSanity color="#999999" size={60} />
