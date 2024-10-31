@@ -3,17 +3,17 @@ import { Inter } from "next/font/google";
 import Form from "next/form";
 import CustomInput from "@/src/components/CustomInput/CustomInput";
 import { CustomButton } from "@/src/components/CustomButton/CustomButton";
-// import { formHandlerAction } from "@/src/actions/formHandler";
+import { formHandlerAction } from "@/src/actions/formHandler";
 
 const interRegular = Inter({
   weight: "400",
   subsets: ["latin"],
 });
 
-// const handleFormSubmittion = async (formData: FormData) => {
-//   const { errors, successMsg } = await formHandlerAction(formData);
-//   console.log(errors, successMsg);
-// };
+const handleFormSubmittion = async (formData: FormData) => {
+  const { errors, successMsg } = await formHandlerAction(formData);
+  console.log(errors, successMsg);
+};
 
 export const ContactSection = () => {
   return (
@@ -44,7 +44,7 @@ export const ContactSection = () => {
         </div>
       </div>
       <div className="xl:pr-40">
-        <Form action={"/test"}>
+        <Form action={handleFormSubmittion}>
           <CustomInput
             type="text"
             placeholder="Enter full name"
