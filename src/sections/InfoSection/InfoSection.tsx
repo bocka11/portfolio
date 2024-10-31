@@ -1,7 +1,4 @@
-import {
-  ProfilePictureFields,
-  ProfileSectionFields,
-} from "@/src/types/Contentful";
+import { ProfileSectionFields } from "@/src/types/Contentful";
 import "../../components/InfoCard/InfoCard";
 import { InfoCard } from "../../components/InfoCard/InfoCard";
 

@@ -10,7 +10,6 @@ import { SkillsSection } from "@/src/sections/SkillsSection/SkillsSection";
 import { ContactSection } from "@/src/sections/ContactSection/ContactSection";
 import {
   AboutSectionFields,
-  CareerSectionFields,
   ContentTypes,
   ExperienceSectionFields,
   ProfileSectionFields,
@@ -22,7 +21,6 @@ import {
   CareerSection as CareerSectionResponse,
   ExperienceSection as ExperienceSectionResponse,
   ProfileSection as ProfileSectionResponse,
-  ContentfulError,
   ContentfulEntry,
 } from "../src/types/Contentful";
 export default function Home() {

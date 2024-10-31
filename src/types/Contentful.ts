@@ -1,4 +1,4 @@
-import { Entry, EntrySkeletonType, EntryFieldTypes } from "contentful";
+import { Entry, EntrySkeletonType } from "contentful";
 
 export enum ContentTypes {
   HelloSection = "helloSection",

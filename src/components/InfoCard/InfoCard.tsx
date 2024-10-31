@@ -2,8 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { CustomButton } from "../CustomButton/CustomButton";
-import { FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";
 import { ProfileSectionFields } from "@/src/types/Contentful";
 

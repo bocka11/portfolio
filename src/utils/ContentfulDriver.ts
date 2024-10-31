@@ -1,5 +1,5 @@
 import * as contentful from "contentful";
-import { ContentTypeMap, ContentfulError } from "../types/Contentful";
+import { ContentTypeMap } from "../types/Contentful";
 const client = contentful.createClient({
   accessToken: "Np_yBYIR0Q4q8nX2h6_9QFR-KW-GVmBidiItV3Ln4cI",
   space: "fhn3q1kxcfyn",
