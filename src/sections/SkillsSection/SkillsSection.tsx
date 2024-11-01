@@ -64,13 +64,32 @@ export const SkillsSection = (props: { data: SkillResponse[] }) => {
                   <FaDocker color={skill.fields.color} size={60} />
                 </CustomToolTip>
               );
+            case "AWS":
+              return (
+                <CustomToolTip skill={skill.fields} key={index}>
+                  <FaAws color={skill.fields.color} size={60} />
+                </CustomToolTip>
+              );
+            case "Serverless":
+              return (
+                <CustomToolTip skill={skill.fields} key={index}>
+                  <SiServerless color={skill.fields.color} size={60} />
+                </CustomToolTip>
+              );
+            case "Sanity":
+              return (
+                <CustomToolTip skill={skill.fields} key={index}>
+                  <SiSanity color={skill.fields.color} size={60} />
+                </CustomToolTip>
+              );
+            case "Kubernetes":
+              return (
+                <CustomToolTip skill={skill.fields} key={index}>
+                  <SiKubernetes color={skill.fields.color} size={60} />
+                </CustomToolTip>
+              );
           }
         })}
-
-        <FaAws color="#999999" size={60} />
-        <SiServerless color="#999999" size={60} />
-        <SiSanity color="#999999" size={60} />
-        <SiKubernetes color="#999999" size={60} />
       </div>
     </section>
   );
