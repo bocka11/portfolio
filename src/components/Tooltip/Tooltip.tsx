@@ -1,14 +1,32 @@
 import { SkillFields } from "@/src/types/Contentful";
 import { CircularProgressBar } from "../CircularProgressBar/CircularProgressBar";
 import { Tooltip } from "@nextui-org/tooltip";
+import { useEffect, useState } from "react";
+import { Tooltip as ReactToolTip } from "react-tooltip";
 
 export const CustomToolTip = (props: {
   children: React.ReactNode;
   skill: SkillFields;
 }) => {
-  return (
+  const [screenWidth, setScreenWidth] = useState<number>(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  console.log("Props: ", props);
+  return screenWidth > 767 ? (
     <Tooltip
       placement="bottom"
+      showArrow={true}
       content={
         <CircularProgressBar
           value={props.skill.percentage}
@@ -18,7 +36,17 @@ export const CustomToolTip = (props: {
       }
     >
       {props.children}
-      {/* <FaNodeJs color={skill.fields.color} size={60} /> */}
     </Tooltip>
+  ) : (
+    <div>
+      <a data-tooltip-id={props.skill.name}>{props.children} </a>
+      <ReactToolTip id={props.skill.name} events={["click"]} place="bottom">
+        <CircularProgressBar
+          value={props.skill.percentage}
+          color={props.skill.color}
+          name={props.skill.name}
+        />
+      </ReactToolTip>
+    </div>
   );
 };

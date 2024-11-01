@@ -1,6 +1,6 @@
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-export const CircularProgressBar = (props: {
+export const CircularProgressBar: any = (props: {
   value: number;
   color: string;
   name: string;
