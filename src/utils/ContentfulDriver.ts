@@ -8,6 +8,7 @@ const client = contentful.createClient({
 export const getEntryById = async (entryId: string): Promise<any> => {
   try {
     const entry = await client.getEntry(entryId);
+    console.log("Entry", entry);
   } catch (error) {
     console.log("Entry loading error: ", error);
   }
