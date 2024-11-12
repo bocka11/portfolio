@@ -5,7 +5,6 @@ export const CircularProgressBar: any = (props: {
   color: string;
   name: string;
 }) => {
-  console.log("Value: ", props.value);
   return (
     <div className="flex flex-col items-center gap-1">
       <span>{props.name}</span>

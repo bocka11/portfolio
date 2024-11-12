@@ -1,5 +1,5 @@
 export const CustomInput = (props: {
-  type: string;
+  type: "text" | "email" | "phone";
   placeholder: string;
   label: string;
   name: string;

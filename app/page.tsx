@@ -105,7 +105,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center md:items-start md:flex-row md:gap-10 gap-20">
-      <div className="left-section">
+      <div className="left-section md:sticky md:top-0">
         <InfoSection data={profileSectionData} />
       </div>
       <div className="right-section flex flex-col gap-5 md:gap-10 w-full">

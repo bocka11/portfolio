@@ -8,7 +8,7 @@ export const CustomToolTip = (props: {
   children: React.ReactNode;
   skill: SkillFields;
 }) => {
-  const [screenWidth, setScreenWidth] = useState<number>(0);
+  const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
@@ -22,7 +22,6 @@ export const CustomToolTip = (props: {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  console.log("Props: ", props);
   return screenWidth > 767 ? (
     <Tooltip
       placement="bottom"
