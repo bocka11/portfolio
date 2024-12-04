@@ -38,58 +38,60 @@ export const SkillsSection = (props: { data: SkillResponse[] }) => {
         </div>
       </div>
       <div className="flex flex-row flex-wrap justify-around md:justify-between">
-        {props.data.map((skill, index) => {
-          switch (skill.fields.name) {
-            case "Nodejs":
-              return (
-                <CustomToolTip skill={skill.fields} key={index}>
-                  <FaNodeJs color={skill.fields.color} size={60} />
-                </CustomToolTip>
-              );
-            case "React":
-              return (
-                <CustomToolTip skill={skill.fields} key={index}>
-                  <FaReact color={skill.fields.color} size={60} />
-                </CustomToolTip>
-              );
-            case "Angular":
-              return (
-                <CustomToolTip skill={skill.fields} key={index}>
-                  <FaAngular color={skill.fields.color} size={60} />
-                </CustomToolTip>
-              );
-            case "Docker":
-              return (
-                <CustomToolTip skill={skill.fields} key={index}>
-                  <FaDocker color={skill.fields.color} size={60} />
-                </CustomToolTip>
-              );
-            case "AWS":
-              return (
-                <CustomToolTip skill={skill.fields} key={index}>
-                  <FaAws color={skill.fields.color} size={60} />
-                </CustomToolTip>
-              );
-            case "Serverless":
-              return (
-                <CustomToolTip skill={skill.fields} key={index}>
-                  <SiServerless color={skill.fields.color} size={60} />
-                </CustomToolTip>
-              );
-            case "Sanity":
-              return (
-                <CustomToolTip skill={skill.fields} key={index}>
-                  <SiSanity color={skill.fields.color} size={60} />
-                </CustomToolTip>
-              );
-            case "Kubernetes":
-              return (
-                <CustomToolTip skill={skill.fields} key={index}>
-                  <SiKubernetes color={skill.fields.color} size={60} />
-                </CustomToolTip>
-              );
-          }
-        })}
+        {props.data
+          .sort((a, b) => a.fields.order - b.fields.order)
+          .map((skill, index) => {
+            switch (skill.fields.name) {
+              case "Nodejs":
+                return (
+                  <CustomToolTip skill={skill.fields} key={index}>
+                    <FaNodeJs color={skill.fields.color} size={60} />
+                  </CustomToolTip>
+                );
+              case "React":
+                return (
+                  <CustomToolTip skill={skill.fields} key={index}>
+                    <FaReact color={skill.fields.color} size={60} />
+                  </CustomToolTip>
+                );
+              case "Angular":
+                return (
+                  <CustomToolTip skill={skill.fields} key={index}>
+                    <FaAngular color={skill.fields.color} size={60} />
+                  </CustomToolTip>
+                );
+              case "Docker":
+                return (
+                  <CustomToolTip skill={skill.fields} key={index}>
+                    <FaDocker color={skill.fields.color} size={60} />
+                  </CustomToolTip>
+                );
+              case "AWS":
+                return (
+                  <CustomToolTip skill={skill.fields} key={index}>
+                    <FaAws color={skill.fields.color} size={60} />
+                  </CustomToolTip>
+                );
+              case "Serverless":
+                return (
+                  <CustomToolTip skill={skill.fields} key={index}>
+                    <SiServerless color={skill.fields.color} size={60} />
+                  </CustomToolTip>
+                );
+              case "Sanity":
+                return (
+                  <CustomToolTip skill={skill.fields} key={index}>
+                    <SiSanity color={skill.fields.color} size={60} />
+                  </CustomToolTip>
+                );
+              case "Kubernetes":
+                return (
+                  <CustomToolTip skill={skill.fields} key={index}>
+                    <SiKubernetes color={skill.fields.color} size={60} />
+                  </CustomToolTip>
+                );
+            }
+          })}
       </div>
     </section>
   );

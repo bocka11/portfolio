@@ -7,6 +7,7 @@ export enum ContentTypes {
   ExperienceSection = "experienceSection",
   ProfileSection = "profileSection",
   Skills = "skills",
+  Projects = "projectSection",
 }
 
 export interface HelloSectionFields {
@@ -45,6 +46,7 @@ export interface CareerSectionFields {
   endDate: Date;
   currentlyWorking: boolean;
   description: string;
+  order: number;
 }
 
 export interface CareerSection {
@@ -89,10 +91,30 @@ export interface SkillFields {
   name: string;
   percentage: number;
   color: string;
+  order: number;
 }
 
 export interface Skill {
   fields: SkillFields;
+  contentTypeId: string;
+}
+
+export interface ProjectLogoField {
+  file: File;
+}
+export interface ProjectLogo {
+  fields: ProjectLogoField;
+}
+
+export interface ProjectFields {
+  name: string;
+  description: string;
+  logo: ProjectLogo;
+  order: number;
+}
+
+export interface ProjectSection {
+  fields: ProjectFields;
   contentTypeId: string;
 }
 
@@ -103,6 +125,7 @@ export type ContentTypeMap = {
   careerSection: CareerSection;
   profileSection: ProfileSection;
   skills: Skill;
+  projectSection: ProjectSection;
 };
 
 export interface ContentfulError {

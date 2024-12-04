@@ -36,18 +36,20 @@ export const CareerSection = (props: { data: CareerSectionResponse[] }) => {
         </div>
       </div>
       <div className="flex flex-col gap-10">
-        {props.data.map((entry, index) => {
-          const data = entry.fields;
-          return (
-            <ExperienceComponent
-              key={index}
-              from={moment(data.startDate).format("MMMM YYYY")}
-              to={moment(data.endDate).format("MMMM YYYY")}
-              description={data.description}
-              currentlyWorking={data.currentlyWorking}
-            />
-          );
-        })}
+        {props.data
+          .sort((a, b) => a.fields.order - b.fields.order)
+          .map((entry, index) => {
+            const data = entry.fields;
+            return (
+              <ExperienceComponent
+                key={index}
+                from={moment(data.startDate).format("MMMM YYYY")}
+                to={moment(data.endDate).format("MMMM YYYY")}
+                description={data.description}
+                currentlyWorking={data.currentlyWorking}
+              />
+            );
+          })}
       </div>
     </section>
   );

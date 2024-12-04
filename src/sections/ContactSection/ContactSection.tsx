@@ -47,9 +47,15 @@ export const ContactSection = () => {
         <Form action={handleFormSubmittion}>
           <CustomInput
             type="text"
-            placeholder="Enter full name"
-            label="Full Name"
-            name="name"
+            placeholder="Enter first name"
+            label="First Name"
+            name="firstName"
+          ></CustomInput>
+          <CustomInput
+            type="text"
+            placeholder="Enter last name"
+            label="Last Name"
+            name="lastName"
           ></CustomInput>
           <CustomInput
             type="email"

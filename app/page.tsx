@@ -8,6 +8,7 @@ import { AboutSection } from "@/src/sections/AboutSection/AboutSection";
 import { CareerSection } from "@/src/sections/CareerSection/CareerSection";
 import { SkillsSection } from "@/src/sections/SkillsSection/SkillsSection";
 import { ContactSection } from "@/src/sections/ContactSection/ContactSection";
+import { ProjectSection } from "@/src/sections/ProjectsSection/ProjectsSection";
 import {
   AboutSectionFields,
   ContentTypes,
@@ -22,6 +23,7 @@ import {
   ExperienceSection as ExperienceSectionResponse,
   ProfileSection as ProfileSectionResponse,
   Skill as SkillResponse,
+  ProjectSection as ProjectResponse,
   ContentfulEntry,
 } from "../src/types/Contentful";
 export default function Home() {
@@ -56,6 +58,7 @@ export default function Home() {
       socialMedia: [],
     });
   const [skillsData, setSkillsData] = useState<SkillResponse[]>([]);
+  const [projectsData, setProjectsData] = useState<ProjectResponse[]>([]);
   useEffect(() => {
     (async function () {
       try {
@@ -97,6 +100,11 @@ export default function Home() {
         const skillsEntries: ContentfulEntry<SkillResponse>[] =
           await getEntriesByContentModel(ContentTypes.Skills);
         setSkillsData(skillsEntries as any);
+
+        // Projects
+        const projectEntries: ContentfulEntry<ProjectResponse>[] =
+          await getEntriesByContentModel(ContentTypes.Projects);
+        setProjectsData(projectEntries as any);
       } catch (error) {
         console.log("Error: ", error);
       }
@@ -114,6 +122,7 @@ export default function Home() {
         <AboutSection data={aboutSectionData} />
         <CareerSection data={careerSectionData} />
         <SkillsSection data={skillsData} />
+        <ProjectSection data={projectsData} />
         <ContactSection />
       </div>
     </div>
