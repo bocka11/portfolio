@@ -6,8 +6,6 @@ const interRegular = Inter({
   subsets: ["latin"],
 });
 export const ProjectCard = (props: { data: ProjectFields }) => {
-  console.log("Props : ", props.data);
-
   return (
     <div className="inline-block px-3">
       <div className="w-60 h-64  rounded-3xl bg-slate-800 border-white border-2">

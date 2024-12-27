@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: #15181B;
+  --background: #15181b;
   --foreground: #f6f1f1;
 }
 
@@ -19,7 +19,7 @@
   section {
     /* padding: 40px 5vw; */
     padding-right: 5vw;
-    padding-top: 120px
+    padding-top: 120px;
   }
 }
 body {
@@ -27,15 +27,13 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   /* overflow: hidden; */
-  
+
   /* padding: 40px 5vw; */
 
-  padding: 20px 5vw;
-  
-  .left-section{
+  padding: 0 5vw;
+  padding-top: 20px;
+
+  .left-section {
     /* width: 360px; */
-  
   }
 }
-
-

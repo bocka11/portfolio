@@ -9,7 +9,6 @@ const interRegular = Inter({
 });
 
 export const SkillsSection = (props: { data: SkillResponse[] }) => {
-  console.log("Props: ", props);
   return (
     <section className="flex flex-col gap-6 md:gap-20">
       <div className="flex flex-col gap-2 md:gap-5">

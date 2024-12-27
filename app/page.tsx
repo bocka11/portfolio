@@ -26,6 +26,7 @@ import {
   ProjectSection as ProjectResponse,
   ContentfulEntry,
 } from "../src/types/Contentful";
+import { InfinitySpin } from "react-loader-spinner";
 export default function Home() {
   const [helloSectionData, setHelloSectionData] = useState<HelloSectionFields>({
     title: "",
@@ -59,6 +60,7 @@ export default function Home() {
     });
   const [skillsData, setSkillsData] = useState<SkillResponse[]>([]);
   const [projectsData, setProjectsData] = useState<ProjectResponse[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     (async function () {
       try {
@@ -105,11 +107,20 @@ export default function Home() {
         const projectEntries: ContentfulEntry<ProjectResponse>[] =
           await getEntriesByContentModel(ContentTypes.Projects);
         setProjectsData(projectEntries as any);
+        setLoading(false);
       } catch (error) {
         console.log("Error: ", error);
       }
     })();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <InfinitySpin width="200" color="#44AAFF" />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col items-center md:items-start md:flex-row md:gap-10 gap-20">
@@ -122,7 +133,7 @@ export default function Home() {
         <AboutSection data={aboutSectionData} />
         <CareerSection data={careerSectionData} />
         <SkillsSection data={skillsData} />
-        <ProjectSection data={projectsData} />
+        {/* <ProjectSection data={projectsData} /> */}
         <ContactSection />
       </div>
     </div>
