@@ -22,7 +22,6 @@ import {
   ExperienceSection as ExperienceSectionResponse,
   ProfileSection as ProfileSectionResponse,
   Skill as SkillResponse,
-  ProjectSection as ProjectResponse,
   ContentfulEntry,
 } from "../src/types/Contentful";
 import { InfinitySpin } from "react-loader-spinner";
