@@ -8,7 +8,6 @@ import { AboutSection } from "@/src/sections/AboutSection/AboutSection";
 import { CareerSection } from "@/src/sections/CareerSection/CareerSection";
 import { SkillsSection } from "@/src/sections/SkillsSection/SkillsSection";
 import { ContactSection } from "@/src/sections/ContactSection/ContactSection";
-import { ProjectSection } from "@/src/sections/ProjectsSection/ProjectsSection";
 import {
   AboutSectionFields,
   ContentTypes,
@@ -59,7 +58,7 @@ export default function Home() {
       socialMedia: [],
     });
   const [skillsData, setSkillsData] = useState<SkillResponse[]>([]);
-  const [projectsData, setProjectsData] = useState<ProjectResponse[]>([]);
+
   const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     (async function () {
@@ -103,10 +102,6 @@ export default function Home() {
           await getEntriesByContentModel(ContentTypes.Skills);
         setSkillsData(skillsEntries as any);
 
-        // Projects
-        const projectEntries: ContentfulEntry<ProjectResponse>[] =
-          await getEntriesByContentModel(ContentTypes.Projects);
-        setProjectsData(projectEntries as any);
         setLoading(false);
       } catch (error) {
         console.log("Error: ", error);
